@@ -91,7 +91,7 @@ function getArrayOfPositives(arr) {
  *    [ 'cat, 'dog', 'raccon' ] => [ 'cat', 'dog', 'racoon' ]
  */
 function getArrayOfStrings(arr) {
-   return arr.filter(item => typeof(item) === 'string');
+    return arr.filter(item => typeof item === 'string');
 }
 
 /**
@@ -108,7 +108,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-   return arr.filter(item => item);
+    return arr.filter(item => item);
 }
 
 /**
@@ -123,6 +123,7 @@ function removeFalsyValues(arr) {
  */
 function getUpperCaseStrings(arr) {
    return arr.map(item => item.toUpperCase());
+   
 }
 
 
@@ -240,7 +241,12 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(arr) {
-   throw new Error('Not implemented');
+   const sum = [];
+   arr.reduce((a, b) => {
+      sum.push(a + b);
+      return a + b;
+   }, 0);
+   return sum;
 }
 
 /**
@@ -274,7 +280,7 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+   return arr.reduce((a, b, i) => [...a, ...(new Array(i + 1).fill(b))], [])
 }
 
 
@@ -327,7 +333,7 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+   table = ['one', 'two', 'three'];
 }
 
 /** 
