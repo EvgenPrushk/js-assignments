@@ -387,8 +387,19 @@ function isBracketsBalanced(str) {
  *
  */
 function timespanToHumanString(startDate, endDate) {
-    throw new Error('Not implemented');
-}
+    const seconds = (endDate.getTime() - startDate.getTime())/1000.0 - 0.000001;
+    return (seconds <= 45 ? "a few seconds ago" : (
+        seconds <= 90 ? "a minute ago" : (
+        seconds <= 45*60 ? Math.round(seconds/60) + " minutes ago" : (
+        seconds <= 90*60 ? "an hour ago" : (
+        seconds <= 22*3600 ? Math.round(seconds/3600) + " hours ago" : (
+        seconds <= 36*3600 ? "a day ago" : (
+        seconds <= 25*86400 ? Math.round(seconds/86400) + " days ago" : (
+        seconds <= 45*86400 ? "a month ago" : (
+        seconds <= 345*86400 ? Math.round(seconds/2592000) + " months ago" : (
+        seconds <= 545*86400 ? "a year ago" : Math.round(seconds/31536000) + " years ago")))))))))
+    );
+        }
 
 
 /**
@@ -451,7 +462,21 @@ function getCommonDirectoryPath(pathes) {
  *
  */
 function getMatrixProduct(m1, m2) {
-    throw new Error('Not implemented');
+    const sum = [];
+
+    for (let i = 0; i < m1.length; i++) {
+        sum[i] = [];
+
+        for (let j = 0; j < m2[i].length; j++) {
+            sum[i][j] = 0;
+
+            for (let t = 0; t < m1[i].length; t++) {
+                sum[i][j] += m1[i][t] * m2[t][j];
+            }
+        }
+    }
+
+    return sum;
 }
 
 
