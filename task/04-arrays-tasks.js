@@ -108,7 +108,7 @@ function getArrayOfStrings(arr) {
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
 function removeFalsyValues(arr) {
-    return arr.filter(item => item);
+   return arr.filter(item => item);
 }
 
 /**
@@ -333,7 +333,8 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   table = ['one', 'two', 'three'];
+   const table = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+   return arr.sort((a, b) => table.findIndex(item => item === a) - table.findIndex(item => item === b));
 }
 
 /** 
@@ -365,7 +366,8 @@ function getItemsSum(arr) {
  *  [ null, undefined, NaN, false, 0, '' ]  => 6
  */
 function getFalsyValuesCount(arr) {
-   throw new Error('Not implemented');
+  return arr.filter(item => !item).length;
+   
 }
 
 /**
@@ -461,7 +463,11 @@ function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]   
  */
 function getIdentityMatrix(n) {
-   throw new Error('Not implemented');
+   return Array.from({ length: n }, (item, i) => {
+      item = new Array(n).fill(0);
+      item[i] = 1;
+      return item;   
+  }); 
 }
 
 /**
@@ -478,7 +484,8 @@ function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 function getIntervalArray(start, end) {
-   throw new Error('Not implemented');
+   let difference = end - start;
+   return Array.from({length: difference + 1}, item => item = start++);
 }
 
 /**
@@ -493,7 +500,9 @@ function getIntervalArray(start, end) {
  *   [ 1, 1, 2, 2, 3, 3, 4, 4] => [ 1, 2, 3, 4]
  */
 function distinct(arr) {
-   throw new Error('Not implemented');
+   const num = new Set();
+   arr.map(item => num.add(item));
+   return Array.from(num);
 }
 
 /**
@@ -543,7 +552,7 @@ function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-    throw new Error('Not implemented');
+    return Array.from(arr,childrenSelector).reduce((a, b) => a.concat(b));
 }
 
 
@@ -560,7 +569,7 @@ function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 function getElementByIndexes(arr, indexes) {
-    throw new Error('Not implemented');
+  return indexes.reduce((accum, element, index) => accum[element], arr);
 }
 
 
@@ -583,7 +592,9 @@ function getElementByIndexes(arr, indexes) {
  * 
  */
 function swapHeadAndTail(arr) {
-    throw new Error('Not implemented');
+   const pivot = Math.floor(arr.length / 2);
+   if(!(arr.length % 2)) return [...arr.slice(pivot), ...arr.slice(0, pivot)]
+   return [...arr.slice(pivot + 1), ...arr.splice(pivot, 1), ...arr.slice(0, pivot)];
 }
 
 
