@@ -47,7 +47,26 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-    throw new Error('Not implemented');
+    let fibo1;
+    let fibo2;
+
+    while(true) {  
+        if(!fibo1) {
+            fibo1 = 0;        
+            yield fibo1;
+        }
+
+        if(!fibo2) {
+            fibo2 = 1;        
+            yield fibo2;
+        }
+
+        const tmp = fibo1
+        fibo1 = fibo2;
+        fibo2 = fibo1 + tmp;
+
+        yield fibo2;
+    }
 }
 
 
